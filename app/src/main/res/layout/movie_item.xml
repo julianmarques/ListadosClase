@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/ivPortada"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:background="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_toRightOf="@+id/ivPortada"
+        android:gravity="center_horizontal"
+        android:text="Título de la peli"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvSubtitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitulo"
+        android:layout_margin="8dp"
+        android:layout_toRightOf="@+id/ivPortada"
+        android:gravity="center_horizontal"
+        android:text="Subtítulo" />
+
+</RelativeLayout>

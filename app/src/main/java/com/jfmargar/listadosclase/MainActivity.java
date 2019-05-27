@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnListView;
     Button btnListViewOptimizado;
     Button btnRecyclerView;
+    Button btnPeliculas;
 
 
     @Override
@@ -21,13 +22,21 @@ public class MainActivity extends AppCompatActivity {
         btnListView = findViewById(R.id.btnListView);
         btnListViewOptimizado = findViewById(R.id.btnListViewOptimizado);
         btnRecyclerView = findViewById(R.id.btnRecyclerView);
-
+        btnPeliculas = findViewById(R.id.btnPeliculas);
 
         btnListView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Aquí ponemos la lógica del evento
                 Intent intent = new Intent(MainActivity.this, ListViewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnPeliculas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ListadoPeliculasActivity.class);
                 startActivity(intent);
             }
         });
