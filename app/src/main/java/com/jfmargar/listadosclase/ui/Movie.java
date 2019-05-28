@@ -1,4 +1,4 @@
-package com.jfmargar.listadosclase;
+package com.jfmargar.listadosclase.ui;
 
 public class Movie {
     String title;

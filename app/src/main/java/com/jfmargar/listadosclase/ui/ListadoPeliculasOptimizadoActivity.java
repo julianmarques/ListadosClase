@@ -1,21 +1,23 @@
-package com.jfmargar.listadosclase;
+package com.jfmargar.listadosclase.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.GridView;
+import android.widget.ListView;
+
+import com.jfmargar.listadosclase.R;
 
 import java.util.ArrayList;
 
-public class TablaPeliculasOptimizada extends AppCompatActivity {
+public class ListadoPeliculasOptimizadoActivity extends AppCompatActivity {
 
-    GridView gvPelicuas;
+    ListView lvPeliculas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tabla_peliculas_optimizada);
+        setContentView(R.layout.activity_listado_peliculas_optimizado);
 
-        gvPelicuas = findViewById(R.id.gvPelicuas);
+        lvPeliculas = findViewById(R.id.lvPeliculas);
 
         Movie movie1 = new Movie();
         movie1.setTitle("Los vengadores: Infinity War");
@@ -46,8 +48,13 @@ public class TablaPeliculasOptimizada extends AppCompatActivity {
         movies.add(movie5);
 
 
-        MovieAdapter adapter = new MovieAdapter(this, R.layout.movie_item_2, movies);
+        MovieAdapter adapter =
+                new MovieAdapter(
+                        ListadoPeliculasOptimizadoActivity.this,
+                        R.layout.movie_item,
+                        movies);
 
-        gvPelicuas.setAdapter(adapter);
+        lvPeliculas.setAdapter(adapter);
+
     }
 }
