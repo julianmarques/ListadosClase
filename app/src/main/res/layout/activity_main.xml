@@ -30,6 +30,12 @@
             android:text="ListView optimizado" />
 
         <Button
+            android:id="@+id/btnGridView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gridview optimizado" />
+
+        <Button
             android:id="@+id/btnRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListadoPeliculasActivity"></activity>
+        <activity android:name=".TablaPeliculasOptimizada"></activity>
+        <activity android:name=".ListadoPeliculasActivity" />
         <activity android:name=".ListViewActivity" />
         <activity android:name=".ListadoPeliculasOptimizadoActivity" />
         <activity android:name=".MainActivity">

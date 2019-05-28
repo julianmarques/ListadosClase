@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnListView;
     Button btnListViewOptimizado;
     Button btnRecyclerView;
+    Button btnGridView;
     Button btnPeliculas;
 
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         btnListViewOptimizado = findViewById(R.id.btnListViewOptimizado);
         btnRecyclerView = findViewById(R.id.btnRecyclerView);
         btnPeliculas = findViewById(R.id.btnPeliculas);
+        btnGridView = findViewById(R.id.btnGridView);
 
         btnListView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnGridView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TablaPeliculasOptimizada.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
