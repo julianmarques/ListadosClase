@@ -1,19 +1,21 @@
-package com.jfmargar.listadosclase;
+package com.jfmargar.listadosclase.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
+import com.jfmargar.listadosclase.R;
+
 import java.util.ArrayList;
 
-public class ListadoPeliculasOptimizadoActivity extends AppCompatActivity {
+public class ListadoPeliculasActivity extends AppCompatActivity {
 
     ListView lvPeliculas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listado_peliculas_optimizado);
+        setContentView(R.layout.activity_listado_peliculas);
 
         lvPeliculas = findViewById(R.id.lvPeliculas);
 
@@ -48,7 +50,7 @@ public class ListadoPeliculasOptimizadoActivity extends AppCompatActivity {
 
         MovieAdapter adapter =
                 new MovieAdapter(
-                        ListadoPeliculasOptimizadoActivity.this,
+                        ListadoPeliculasActivity.this,
                         R.layout.movie_item,
                         movies);
 

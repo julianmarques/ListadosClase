@@ -10,12 +10,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".ui.App"
         android:theme="@style/AppTheme">
-        <activity android:name=".TablaPeliculasOptimizada"></activity>
-        <activity android:name=".ListadoPeliculasActivity" />
-        <activity android:name=".ListViewActivity" />
-        <activity android:name=".ListadoPeliculasOptimizadoActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.ListadoOptimizadoAPIActivity"></activity>
+        <activity android:name=".ui.ListadoPeliculasActivity" />
+        <activity android:name=".ui.ListViewActivity" />
+        <activity android:name=".ui.ListadoPeliculasOptimizadoActivity" />
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

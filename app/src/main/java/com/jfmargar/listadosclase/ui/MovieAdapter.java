@@ -1,4 +1,4 @@
-package com.jfmargar.listadosclase;
+package com.jfmargar.listadosclase.ui;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.jfmargar.listadosclase.R;
 
 import java.util.ArrayList;
 
