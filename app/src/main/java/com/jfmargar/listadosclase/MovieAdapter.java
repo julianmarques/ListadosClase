@@ -28,6 +28,7 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         //"Inflar" la View a partir del XML de un elemento de la lista
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View item = inflater.inflate(resource, null);

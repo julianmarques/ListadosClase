@@ -41,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnListViewOptimizado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ListadoPeliculasOptimizadoActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

@@ -13,6 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ListadoPeliculasActivity"></activity>
         <activity android:name=".ListViewActivity" />
+        <activity android:name=".ListadoPeliculasOptimizadoActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
