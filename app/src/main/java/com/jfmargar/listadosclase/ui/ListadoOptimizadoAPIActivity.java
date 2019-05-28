@@ -28,7 +28,7 @@ public class ListadoOptimizadoAPIActivity extends AppCompatActivity {
 
         lvPeliculas = findViewById(R.id.lvPeliculas);
 
-        MovieAdapterApi adapter = new MovieAdapterApi(this, R.layout.movie_item, movies);
+        final MovieAdapterApi adapter = new MovieAdapterApi(this, R.layout.movie_item, movies);
 
         lvPeliculas.setAdapter(adapter);
 
@@ -42,6 +42,7 @@ public class ListadoOptimizadoAPIActivity extends AppCompatActivity {
             public void onResponse(Call<ListOfMoviesDTO> call, Response<ListOfMoviesDTO> response) {
 
                 movies.addAll(response.body().getResults());
+                adapter.notifyDataSetChanged();
             }
 
             @Override
