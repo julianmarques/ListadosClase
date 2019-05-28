@@ -1,9 +1,11 @@
-package com.jfmargar.listadosclase;
+package com.jfmargar.listadosclase.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.jfmargar.listadosclase.R;
 
 import java.util.ArrayList;
 

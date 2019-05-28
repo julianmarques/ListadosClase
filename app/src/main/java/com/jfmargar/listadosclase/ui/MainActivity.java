@@ -1,4 +1,4 @@
-package com.jfmargar.listadosclase;
+package com.jfmargar.listadosclase.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,12 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.jfmargar.listadosclase.R;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnListView;
     Button btnListViewOptimizado;
     Button btnRecyclerView;
-    Button btnGridView;
+    Button btnApi;
     Button btnPeliculas;
 
 
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         btnListViewOptimizado = findViewById(R.id.btnListViewOptimizado);
         btnRecyclerView = findViewById(R.id.btnRecyclerView);
         btnPeliculas = findViewById(R.id.btnPeliculas);
-        btnGridView = findViewById(R.id.btnGridView);
+        btnApi = findViewById(R.id.btnApi);
 
         btnListView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,10 +53,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnGridView.setOnClickListener(new View.OnClickListener() {
+        btnApi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, TablaPeliculasOptimizada.class);
+                Intent intent = new Intent(MainActivity.this, ListadoOptimizadoAPIActivity.class);
                 startActivity(intent);
             }
         });
