@@ -1,7 +1,6 @@
 package com.jfmargar.listadosclase;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,33 +15,34 @@ import java.util.ArrayList;
 public class MovieAdapter extends ArrayAdapter<Movie> {
 
     ArrayList<Movie> movies;
+    int resource;
 
-    public MovieAdapter(Context context, ArrayList<Movie> movies) {
-        super(context, R.layout.movie_item, movies);
-        this.movies = movies;
+    public MovieAdapter(Context context,
+                        int resource,
+                        ArrayList<Movie> objects) {
+
+        super(context, resource, objects);
+        this.resource = resource;
+        this.movies = objects;
     }
 
-
     @Override
-    public View getView(int position, @Nullable View convertView, ViewGroup parent) {
-        //"Inflar" una vista a partir de un xml
+    public View getView(int position, View convertView, ViewGroup parent) {
+        //"Inflar" la View a partir del XML de un elemento de la lista
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View item = inflater.inflate(R.layout.movie_item, null);
+        View item = inflater.inflate(resource, null);
 
-        ImageView ivPortada = item.findViewById(R.id.ivPortada);
+        //Enlazar los elementos de la view con las variables java.
         TextView tvTitulo = item.findViewById(R.id.tvTitulo);
         TextView tvSubtitulo = item.findViewById(R.id.tvSubtitulo);
-
+        ImageView ivPortada = item.findViewById(R.id.ivPortada);
 
         Movie movie = movies.get(position);
 
         tvTitulo.setText(movie.getTitle());
         tvSubtitulo.setText(movie.getSubtitle());
 
-        String urlPortada = movie.getUrl();
-
-        Glide.with(getContext()).load(urlPortada).into(ivPortada);
-
+        Glide.with(getContext()).load(movie.getUrl()).into(ivPortada);
 
         return item;
     }

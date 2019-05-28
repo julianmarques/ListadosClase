@@ -3,12 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
-    <ImageView
-        android:id="@+id/ivPortada"
-        android:layout_width="100dp"
-        android:layout_height="150dp" />
-
     <TextView
         android:id="@+id/tvTitulo"
         android:layout_width="match_parent"

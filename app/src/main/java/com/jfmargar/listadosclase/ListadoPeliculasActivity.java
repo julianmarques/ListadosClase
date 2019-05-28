@@ -17,7 +17,6 @@ public class ListadoPeliculasActivity extends AppCompatActivity {
 
         lvPeliculas = findViewById(R.id.lvPeliculas);
 
-
         Movie movie1 = new Movie();
         movie1.setTitle("Los vengadores: Infinity War");
         movie1.setSubtitle("Fase 2");
@@ -46,10 +45,14 @@ public class ListadoPeliculasActivity extends AppCompatActivity {
         movies.add(movie4);
         movies.add(movie5);
 
-        MovieAdapter adapter = new MovieAdapter(ListadoPeliculasActivity.this, movies);
+
+        MovieAdapter adapter =
+                new MovieAdapter(
+                        ListadoPeliculasActivity.this,
+                        R.layout.movie_item,
+                        movies);
 
         lvPeliculas.setAdapter(adapter);
-
 
     }
 }
