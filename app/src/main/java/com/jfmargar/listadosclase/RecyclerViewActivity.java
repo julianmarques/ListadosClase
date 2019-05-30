@@ -1,9 +1,13 @@
 package com.jfmargar.listadosclase;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 
 import com.jfmargar.listadosclase.ui.Book;
 import com.jfmargar.listadosclase.ui.BooksAdapter;
@@ -12,7 +16,11 @@ import java.util.ArrayList;
 
 public class RecyclerViewActivity extends AppCompatActivity {
 
+    public static final int REQUEST_CODE_FOR_NEW_BOOK = 1000;
     RecyclerView rvBooks;
+    Button btnAdd;
+    ArrayList<Book> books;
+    private BooksAdapter adapter;
 
 
     @Override
@@ -20,9 +28,33 @@ public class RecyclerViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
 
-        rvBooks = findViewById(R.id.rvBooks);
+        //Inicializa la vista
+        initView();
+        //Luego genera los libros de ejemplo
+        generateBooks();
+        //Inicializa el listado (recyclerview)
+        initRecyclerView();
+    }
 
+    /**
+     * Este método inicializa un recyclerview
+     */
+    private void initRecyclerView() {
+        adapter = new BooksAdapter(
+                books,
+                R.layout.book_item,
+                RecyclerViewActivity.this);
 
+        rvBooks.setAdapter(adapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(
+                RecyclerViewActivity.this,
+                LinearLayoutManager.VERTICAL,
+                false);
+
+        rvBooks.setLayoutManager(layoutManager);
+    }
+
+    private void generateBooks() {
         Book book1 = new Book();
         book1.setTitle("Juego de tronos");
         book1.setAuthor("G.R.R. Martin");
@@ -66,30 +98,54 @@ public class RecyclerViewActivity extends AppCompatActivity {
         book7.setSinopsis("");
         book7.setCover("https://i.pinimg.com/236x/fb/d0/29/fbd029808bd1729e6a0c0c35ca72461c.jpg");
 
-        ArrayList<Book> books = new ArrayList<>();
+        books = new ArrayList<>();
 
-        for (int i = 0; i < 100; i++) {
-            books.add(book1);
-            books.add(book2);
-            books.add(book3);
-            books.add(book4);
-            books.add(book5);
-            books.add(book6);
-            books.add(book7);
+        books.add(book1);
+        books.add(book2);
+        books.add(book3);
+        books.add(book4);
+        books.add(book5);
+        books.add(book6);
+        books.add(book7);
+    }
+
+    private void initView() {
+        rvBooks = findViewById(R.id.rvBooks);
+        btnAdd = findViewById(R.id.btnAdd);
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(RecyclerViewActivity.this, FormularioBookActivity.class);
+
+                startActivityForResult(intent, REQUEST_CODE_FOR_NEW_BOOK);
+//                Book book = new Book();
+//                book.setTitle("Harry potter");
+//                books.add(book);
+//                adapter.notifyItemInserted(books.size() - 1);
+//                rvBooks.scrollToPosition(books.size() -1);
+
+            }
+        });
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        //Compruebo que la respuesta es correcta, que viene de donde espero que venga y que traiga información
+        if (requestCode == REQUEST_CODE_FOR_NEW_BOOK && data != null) {
+
+            Book book = (Book) data.getSerializableExtra("book");
+
+            books.add(book);
+            adapter.notifyItemInserted(books.size() - 1);
+            rvBooks.scrollToPosition(books.size() - 1);
+
+
         }
 
-
-        BooksAdapter adapter = new BooksAdapter(
-                books,
-                R.layout.book_item,
-                RecyclerViewActivity.this);
-
-        rvBooks.setAdapter(adapter);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(
-                RecyclerViewActivity.this,
-                LinearLayoutManager.VERTICAL,
-                false);
-
-        rvBooks.setLayoutManager(layoutManager);
     }
 }

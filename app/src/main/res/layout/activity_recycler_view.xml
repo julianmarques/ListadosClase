@@ -9,6 +9,15 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvBooks"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnAdd" />
+
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Añadir libro" />
 
 </RelativeLayout>
